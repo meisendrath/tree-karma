@@ -1,6 +1,8 @@
 class PlantedTree < ApplicationRecord
   belongs_to :location
 
+  has_one :contribution, as: :item
+
   has_attached_file :image,
     styles: { thumbnail: '100x100#' },
     convert_options: { thumbnail: '-quality 75 -strip' }
