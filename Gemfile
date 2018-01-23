@@ -61,5 +61,6 @@ gem 'haml'
 gem 'money-rails'
 gem 'aws-sdk', '< 3.0'
 gem 'paperclip'
+gem 'stripe'
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
