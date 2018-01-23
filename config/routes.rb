@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
 
-  root to: 'service_transactions#index'
+  root to: 'pages#home'
 
   resources :service_transactions, only: [:index, :show]
+
+  resources :users, only: :show
 end
