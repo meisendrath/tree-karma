@@ -11,4 +11,10 @@
 
     = csrf_meta_tag
   %body
-    = yield
+    %header
+      = render 'shared/header'
+    %main{role: 'main'}
+      = render 'shared/flash'
+      = yield
+    %footer
+      = render 'shared/footer'

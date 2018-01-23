@@ -1,0 +1,25 @@
+-# TODO
+-# Logo
+= link_to root_path do
+  LOGO HERE
+
+-# Menu
+%h3 Menu
+- if user_signed_in?
+
+  -# Tree index, haml: contributions/index
+  = link_to 'Your Contribution', contributions_path
+
+  -# User can contribute here (pay for a tree, etc), haml: contributions/new
+  = link_to 'Contribute', new_contribution_path
+
+  -# Dropdown menu
+  %div
+    -# User profile, haml: users/show
+    = link_to current_user.first_name, user_path(current_user)
+    -# Log out button
+    = link_to 'Log Out', destroy_user_session_path, method: :delete
+
+- else
+  -# Log in button
+  = link_to 'Log In', new_user_session_path

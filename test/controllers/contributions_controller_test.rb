@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class ServiceTransactionsControllerTest < ActionDispatch::IntegrationTest
+class ContributionsControllerTest < ActionDispatch::IntegrationTest
   # test "the truth" do
   #   assert true
   # end
