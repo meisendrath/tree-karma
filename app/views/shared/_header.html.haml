@@ -7,11 +7,11 @@
 %h3 Menu
 - if user_signed_in?
 
-  -# Tree index, haml: service_transactions/index
-  = link_to 'Your Contribution', service_transactions_path
+  -# Tree index, haml: contributions/index
+  = link_to 'Your Contribution', contributions_path
 
-  -# User can contribute here (pay for a tree, etc), haml: service_transactions/new
-  = link_to 'Contribute', new_service_transaction_path
+  -# User can contribute here (pay for a tree, etc), haml: contributions/new
+  = link_to 'Contribute', new_contribution_path
 
   -# Dropdown menu
   %div
