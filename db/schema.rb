@@ -10,10 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180123202608) do
+ActiveRecord::Schema.define(version: 20180123211257) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "contributions", force: :cascade do |t|
+    t.integer "status", default: 0, null: false
+    t.bigint "contributor_id"
+    t.bigint "partner_id"
+    t.string "item_type", null: false
+    t.bigint "item_id", null: false
+    t.string "stripe_id"
+    t.integer "price_cents", default: 0, null: false
+    t.string "price_currency", default: "USD", null: false
+    t.datetime "completed_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["contributor_id"], name: "index_contributions_on_contributor_id"
+    t.index ["item_type", "item_id"], name: "index_contributions_on_item_type_and_item_id"
+    t.index ["partner_id"], name: "index_contributions_on_partner_id"
+    t.index ["status"], name: "index_contributions_on_status"
+  end
 
   create_table "contributors", force: :cascade do |t|
     t.string "first_name"
@@ -75,6 +93,8 @@ ActiveRecord::Schema.define(version: 20180123202608) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "contributions", "contributors"
+  add_foreign_key "contributions", "partners"
   add_foreign_key "contributors", "users"
   add_foreign_key "partners", "locations"
   add_foreign_key "partners", "users"
