@@ -3,8 +3,7 @@
     .container
       = link_to 'Wuji Karma', root_path, class: 'navbar-brand'
       %button.navbar-toggler.navbar-toggler-right{"aria-controls" => "navbarResponsive", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarResponsive", "data-toggle" => "collapse", :type => "button"}
-        Menu
-        %i.fa.fa-bars
+        %i.fa.fa-bars{"aria-hidden" => "true"}
       #navbarResponsive.collapse.navbar-collapse
         %ul.navbar-nav.ml-auto
           - if user_signed_in?
@@ -12,7 +11,6 @@
               = link_to 'Your Contribution', contributions_path, class: 'nav-link'
             %li.nav-item
               = link_to 'Contribute', contributions_path, class: 'nav-link'
-            -# Bootstrap Dropdown
             %li.nav-item
               = link_to current_user.first_name, user_path(current_user), class: 'nav-link'
             %li.nav-item
