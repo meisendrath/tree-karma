@@ -1,2 +1,27 @@
--# TODO
--# Website footer
+%footer#footer.clearfix
+  #footer-widgets
+    .container
+      #footer-wrapper
+        .row
+          .col-sm-6.col-md-2
+          #meta-3.widget.widgetFooter.widget_meta
+            %ul
+            %a{:href => "#"}
+            %i.fa.fa-envelope.fa-fw
+            Contact Us
+          / end widget1
+          .col-sm-6.col-md-2
+            #recent-posts-3.widget.widgetFooter.widget_recent_entries
+              %ul
+                %li
+                  %a{:href => "https://github.com/meisendrath/wuji-karma", :target => "_blank"}
+                    %i.fa.fa-github
+                    Github
+  / end #footer-widgets
+  #sub-floor
+    .container
+      .row
+        .col-md-4.copyright
+        Copyright © Wuji Karma 2018
+        .col-md-4.col-md-offset-4.attribution
+      / end .row
