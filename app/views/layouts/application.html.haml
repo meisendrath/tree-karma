@@ -3,12 +3,14 @@
   %head
     %meta{content: 'text/html; charset=UTF-8', 'http-equiv' => 'Content-Type'}
     %meta{name: 'viewport', content: 'width=device-width, initial-scale=1'}
+    %meta{name: 'stripe-key', content: Rails.application.secrets.stripe_publishable_key}
 
     %title= content_for(:title) || t('app.title')
 
     = stylesheet_link_tag '//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic'
     = stylesheet_link_tag '//fonts.googleapis.com/css?family=Cabin:700'
-
+    = javascript_include_tag '//js.stripe.com/v3/'
+    
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track' => 'reload'
 
