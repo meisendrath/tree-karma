@@ -2,6 +2,12 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  validates :first_name, :last_name, :email, presence: true
+  has_one :contributor
+  has_one :partner
+
+  validates :email, presence: true
   validates :email, uniqueness: true
+
+  accepts_nested_attributes_for :contributor
+  accepts_nested_attributes_for :partner
 end
