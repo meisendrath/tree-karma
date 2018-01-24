@@ -1,0 +1,29 @@
+%section.content-section.text-center
+  .container
+    .row
+      .col
+        .card.-page
+          = form_for resource, url: partner_contribution_planted_trees_path do |f|
+            %h2.text-dark Enter tree information you planted
+            .field.text-dark
+              = f.label :name
+              %br
+              = f.text_field :name, autofocus: true
+            = f.fields_for :location_attributes do |location_fields|
+              .field.text-dark
+                = location_fields.label :latitude
+                %br
+                = location_fields.text_field :latitude
+              .field.text-dark
+                = location_fields.label :longitude
+                %br
+                = location_fields.text_field :longitude
+            %br
+            .field.text-dark
+              = f.label :image
+              = f.file_field :image
+            %br
+            %br
+            = f.submit 'Submit', class: 'btn btn-success'
+            %br
+            %br
