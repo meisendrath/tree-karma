@@ -12,10 +12,7 @@ class Partner::ContributionsController < ApplicationController
   end
 
   def accept
-    resource.update!(
-      status: :accepted,
-      partner: current_user.partner
-    )
+    ContributionService.make_accepted!(resource, current_user)
   rescue => e
     flash[:error] = e.message
   ensure

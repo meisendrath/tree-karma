@@ -16,4 +16,6 @@ Rails.application.routes.draw do
       resources :planted_trees, only: [:new, :create]
     end
   end
+
+  post 'tierion_callbacks/receipt_ready' => 'tierion_callbacks#receipt_ready', defaults: { format: :json }
 end
