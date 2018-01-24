@@ -3,8 +3,10 @@ body {
 }
 
 footer {
-  position: absolute;
+  position: relative;
   bottom: 0;
+  left: 0;
+  right: 0;
   height: 100px;
   font-family: 'Open Sans', sans-serif;
   padding: 20px;
