@@ -10,7 +10,7 @@
   .card.m-5.text-dark.-page
     .card-body
       %h5.card-title Donate with Credit/Debit card
-      = form_for contributions_path, method: :post do |f|
+      = form_for resource do |f|
         = select_tag :quantity,
           options_for_select(quantity_options)
         #js-stripe-card
