@@ -1,5 +1,5 @@
-$ export TIERION_USERNAME=me@example.com # SQL Authentication here
-$ export TIERION_PASSWORD=my_pass
+$ export TIERION_USERNAME=meisendr@gmail.com # SQL Authentication here
+$ export TIERION_PASSWORD=RideWuji135
 
  t = Tierion::HashApi::Client.new #call our client
 
