@@ -10,4 +10,12 @@ class User < ApplicationRecord
 
   accepts_nested_attributes_for :contributor
   accepts_nested_attributes_for :partner
+
+  def contributor?
+    contributor.present?
+  end
+
+  def partner?
+    partner.present?
+  end
 end

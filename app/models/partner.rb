@@ -5,4 +5,6 @@ class Partner < ApplicationRecord
   has_many :contributions
 
   validates :company_name, presence: true
+
+  accepts_nested_attributes_for :location
 end

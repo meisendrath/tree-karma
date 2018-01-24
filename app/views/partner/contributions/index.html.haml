@@ -1,0 +1,29 @@
+%section.content-section.text-center
+  .container
+    .row
+      .col
+        .card.-page
+          .list-group
+            - resources.each do |resource|
+              .list-group-item.flex-column.align-items-start.text-muted
+                .d-flex.w-100.justify-content-between
+                  %h5.mb-1.text-dark
+                    = "#{Settings.contribution.name} ##{resource.id}"
+                  %small= resource.price.format
+                  - if resource.pending?
+                    .mb-1 AVAILABLE
+                  - elsif resource.accepted?
+                    .mb-1.text-danger IN PROGRESS
+                  - elsif resource.completed?
+                    .mb-1.text-success COMPLETED
+                  - if resource.pending?
+                    = button_to 'Accept',
+                      accept_partner_contribution_path(resource),
+                      method: :post,
+                      remote: true,
+                      class: 'btn btn-primary'
+                  - if resource.accepted?
+                    = button_to 'Complete',
+                      new_partner_contribution_planted_tree_path(resource),
+                      method: :get,
+                      class: 'btn btn-success'

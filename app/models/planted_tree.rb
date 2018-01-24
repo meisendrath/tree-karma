@@ -12,4 +12,6 @@ class PlantedTree < ApplicationRecord
     content_type: { content_type: ['image/jpeg', 'image/png', 'image/jpg'] }
 
   validates :name, :planted_date, :planted_age_years, presence: true
+
+  accepts_nested_attributes_for :location
 end

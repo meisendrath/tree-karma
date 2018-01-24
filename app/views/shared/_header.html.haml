@@ -12,9 +12,16 @@
             %li.nav-item
               = link_to 'Contribute', new_contribution_path, class: 'nav-link'
             %li.nav-item
-              = link_to current_user.contributor.first_name, user_path(current_user), class: 'nav-link'
+              %a.nav-link= current_user.contributor.first_name
             %li.nav-item
               = link_to 'Log Out', destroy_user_session_path, class: 'nav-link', method: :delete
+            - if current_user.partner?
+              %li.nav-item
+                = link_to 'Partner Dashboard', partner_contributions_path, class: 'btn btn-primary'
+            - else
+              - if !current_page?(become_partner_path)
+                %li.nav-item
+                  = link_to 'Become a Partner', become_partner_path, class: 'btn btn-danger'
           - else
             %li.nav-item
               = link_to 'Log In', new_user_session_path, class: 'nav-link'
