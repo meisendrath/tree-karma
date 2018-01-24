@@ -36,7 +36,6 @@ ActiveRecord::Schema.define(version: 20180123211257) do
   create_table "contributors", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
-    t.string "stripe_id"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -53,7 +52,6 @@ ActiveRecord::Schema.define(version: 20180123211257) do
 
   create_table "partners", force: :cascade do |t|
     t.string "company_name"
-    t.string "stripe_id"
     t.bigint "user_id"
     t.bigint "location_id"
     t.datetime "created_at", null: false

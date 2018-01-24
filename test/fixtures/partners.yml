@@ -2,12 +2,10 @@
 
 one:
   company_name: MyString
-  stripe_id: MyString
   user: one
   location: one
 
 two:
   company_name: MyString
-  stripe_id: MyString
   user: two
   location: two
