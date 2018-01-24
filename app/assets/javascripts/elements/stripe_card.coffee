@@ -2,7 +2,6 @@ $(document).on 'turbolinks:load', ->
   if (cardContainer = $('#js-stripe-card')).length > 0
 
     form = cardContainer.closest 'form'
-    form.valid = false
     stripe = Stripe($('meta[name="stripe-key"]').attr('content'))
     card = stripe.elements().create 'card'
     card.mount '#js-stripe-card'
@@ -15,14 +14,13 @@ $(document).on 'turbolinks:load', ->
         input.prop 'value', result.token.id
         input.appendTo form
 
-        form.valid = true
-        form.submit()
+        form[0].submit()
 
     form.on 'submit', (e) =>
-      e.preventDefault() unless form.valid
+      e.preventDefault()
 
       stripe
         .createToken card
         .then continueSubmit
 
-      return form.valid
+      return false
