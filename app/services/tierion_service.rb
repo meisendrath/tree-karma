@@ -3,11 +3,6 @@ class TierionService
     def send_to_blockchain(contribution)
       raise 'Contribution is not completed' unless contribution.completed?
 
-      blockchain_client = Tierion::HashApi::Client.new(
-        Rails.application.secrets.tierion_username,
-        Rails.application.secrets.tierion_password
-      )
-
       contribution_json = contribution.to_json(only: [
         :contributor_id,
         :partner_id,
@@ -23,10 +18,16 @@ class TierionService
 
       contribution_hash = Digest::SHA256.hexdigest(contribution_json)
 
-      # hash_item = blockchain_client.send(contribution_hash)
-      # blockchain_client.receipt(hash_item)
-
       blockchain_client.send(contribution_hash)
+    end
+
+    private
+
+    def blockchain_client
+      Tierion::HashApi::Client.new(
+        Rails.application.secrets.tierion_username,
+        Rails.application.secrets.tierion_password
+      )
     end
   end
 end
