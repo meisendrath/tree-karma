@@ -1,0 +1,33 @@
+%h2 Become a partner
+= form_for current_user, url: make_partner_path, method: :post do |f|
+  = f.fields_for :partner_attributes do |partner_fields|
+    .input-field
+      = partner_fields.label :company_name
+      %br/
+      = partner_fields.text_field :company_name, autofocus: true
+    = partner_fields.fields_for :location_attributes do |location_fields|
+      .input-field
+        = location_fields.label :latitude
+        %br/
+        = location_fields.text_field :latitude
+      .input-field
+        = location_fields.label :longitude
+        %br/
+        = location_fields.text_field :longitude
+
+  -#   = f.label :password
+  -#   %i (leave blank if you don't want to change it)
+  -#   %br/
+  -#   = f.password_field :password, autocomplete: "off"
+  -#   - if @minimum_password_length
+  -#     %br/
+  -#     %em
+  -#       = @minimum_password_length
+  -#       characters minimum
+  -# .field
+  -#   = f.label :current_password
+  -#   %i (we need your current password to confirm your changes)
+  -#   %br/
+  -#   = f.password_field :current_password, autocomplete: "off"
+  .actions
+    = f.submit "Update"
