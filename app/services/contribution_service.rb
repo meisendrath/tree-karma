@@ -1,13 +1,13 @@
 class ContributionService
   class << self
-    def create_temporal!(user, quantity)
+    def create_temporal!(contributor, quantity)
       price = Money.new(Settings.contribution.price_cents)
 
       contributions = []
 
       quantity.times do
         contributions << Contribution.create!(
-          contributor: user.contributor,
+          contributor: contributor,
           price: price
         )
       end
