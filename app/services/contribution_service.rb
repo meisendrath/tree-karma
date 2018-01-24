@@ -20,5 +20,20 @@ class ContributionService
         contribution.update!(status: :pending, stripe_id: stripe_charge_id)
       end
     end
+
+    def make_accepted!(contribution, user)
+      contribution.update!(
+        status: :accepted,
+        partner: user.partner
+      )
+    end
+
+    def make_completed!(contribution, item)
+      contribution.update!(
+        item: item,
+        status: :completed,
+        completed_at: Time.current
+      )
+    end
   end
 end

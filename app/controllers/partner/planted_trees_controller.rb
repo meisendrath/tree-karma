@@ -14,12 +14,9 @@ class Partner::PlantedTreesController < ApplicationController
     raise 'Contribution status is not valid' unless contribution.accepted?
     raise 'You are not authorized for this contribution' unless contribution.partner == current_user.partner
 
-    self.resource = PlantedTree.new(planted_tree_params)
-
-    contribution.update!(
-      item: resource,
-      status: :completed,
-      completed_at: Time.current
+    ContributionService.make_completed!(
+      contribution,
+      PlantedTree.new(planted_tree_params)
     )
 
     redirect_to partner_contributions_path
