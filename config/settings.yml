@@ -1,2 +1,4 @@
 contribution:
   price_cents: <%= ENV['SETTINGS_CONTRIBUTION_PRICE_CENTS'] %>
+  available_quantities: [5, 10, 15, 20, 25, 30, 40, 45, 50]
+  noun: tree
