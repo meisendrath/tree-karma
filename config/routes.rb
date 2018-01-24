@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   root to: 'pages#home'
 
-  resources :contributions, only: [:index, :show, :create, :new]
+  resources :contributions, only: [:index, :create, :new]
 
   resources :users, only: :show
 end

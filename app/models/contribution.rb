@@ -6,12 +6,13 @@ class Contribution < ApplicationRecord
   monetize :price_cents, numericality: { greater_than: 0 }
 
   enum status: {
-    pending: 0,
-    accepted: 1,
-    completed: 2
+    temporal: 0,
+    pending: 1,
+    accepted: 2,
+    completed: 3
   }.freeze
 
-  validates :partner, presence: true, unless: :pending?
+  validates :partner, presence: true, if: -> { accepted? && completed? }
   validates :item, :completed_at, presence: true, if: :completed?
-  validates :stripe_id, presence: true
+  validates :stripe_id, presence: true, unless: :temporal?
 end
