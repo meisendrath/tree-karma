@@ -19,8 +19,8 @@ ActiveRecord::Schema.define(version: 20180123211257) do
     t.integer "status", default: 0, null: false
     t.bigint "contributor_id"
     t.bigint "partner_id"
-    t.string "item_type", null: false
-    t.bigint "item_id", null: false
+    t.string "item_type"
+    t.bigint "item_id"
     t.string "stripe_id"
     t.integer "price_cents", default: 0, null: false
     t.string "price_currency", default: "USD", null: false
