@@ -23,8 +23,8 @@ class TierionService
 
       contribution_hash = Digest::SHA256.hexdigest(contribution_json)
 
-      hash_item = blockchain_client.send(contribution_hash)
-      blockchain_client.receipt(hash_item)
+      # hash_item = blockchain_client.send(contribution_hash)
+      # blockchain_client.receipt(hash_item)
 
       blockchain_client.send(contribution_hash)
     end
