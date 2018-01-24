@@ -2,12 +2,16 @@
 -# - select service (tree details)
 -# - pay here via Stripe
 
+- quantity_options = Settings.contribution.available_quantities.collect { |q| ["#{q} #{Settings.contribution.noun.pluralize.capitalize}", q] }
+
 %section.content-section.text-center
   %h2 Contribute! Plant a tree
 
   .card.m-5.text-dark.-page
     .card-body
       %h5.card-title Donate with Credit/Debit card
-      = form_for resource do |f|
+      = form_for contributions_path, method: :post do |f|
+        = select_tag :quantity,
+          options_for_select(quantity_options)
         #js-stripe-card
         = f.submit 'Contribute!', class: 'btn btn-success'
