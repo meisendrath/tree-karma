@@ -3,7 +3,7 @@ class Partner::ContributionsController < ApplicationController
 
   before_action :authenticate_user!
   before_action :partner_user!
-  before_action :find_resource, only: :accept
+  before_action :find_resource, only: [:accept, :show]
 
   def index
     self.resources = Contribution.pending.to_a

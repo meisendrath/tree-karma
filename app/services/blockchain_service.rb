@@ -8,7 +8,7 @@ class BlockchainService
     private
 
     def generate_hash(object, attrs)
-      object_json = contribution.to_json(only: attrs)
+      object_json = object.to_json(only: attrs)
       Digest::SHA256.hexdigest(object_json)
     end
 

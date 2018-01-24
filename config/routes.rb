@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   resources :contributions, only: [:index, :create, :new]
 
   namespace :partner do
-    resources :contributions, only: :index do
+    resources :contributions, only: [:show, :index] do
       post :accept, on: :member
       resources :planted_trees, only: [:new, :create]
     end

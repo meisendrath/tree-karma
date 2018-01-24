@@ -1,7 +1,7 @@
 class Contribution < ApplicationRecord
   belongs_to :contributor
   belongs_to :partner, optional: true
-  belongs_to :item, polymorphic: true, optional: true
+  belongs_to :item, polymorphic: true, optional: true, autosave: true
 
   monetize :price_cents, numericality: { greater_than: 0 }
 
