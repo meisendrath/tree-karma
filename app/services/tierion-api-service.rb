@@ -3,6 +3,28 @@ $ export TIERION_PASSWORD=RideWuji135
 
  t = Tierion::HashApi::Client.new #call our client
 
+class TierionHash
+  class << self
+    def my_hash = Digest::SHA256.hexdigest(contributions.to_json)
+      print t.hash_items
+      return t.receipt(my_hash)
+    end
+  end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #  my_hash = Digest::SHA256.hexdigest('foo')
 # => "2c26b46b68ffc68ff99b453c1d30413413422d706483bfa0f98a5e886266e7ae">
 #
