@@ -60,7 +60,7 @@ gem 'geocoder'
 gem 'haml'
 gem 'money-rails'
 gem 'aws-sdk', '< 3.0'
-gem 'paperclip'
+gem 'paperclip', '> 5.1.0'
 gem 'stripe'
 gem 'config'
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
