@@ -7,14 +7,13 @@
       #navbarResponsive.collapse.navbar-collapse
         %ul.navbar-nav.ml-auto
           - if user_signed_in?
+            %small.nav-link.text-white.text-thin= "#{current_user.contributor.first_name} #{current_user.contributor.last_name}"
             %li.nav-item
               = link_to 'Your Contribution', contributions_path, class: 'nav-link'
             %li.nav-item
               = link_to 'Contribute', new_contribution_path, class: 'nav-link'
             %li.nav-item
-              %a.nav-link= current_user.contributor.first_name
-            %li.nav-item
-              = link_to 'Log Out', destroy_user_session_path, class: 'nav-link', method: :delete
+              = link_to 'Log Out', destroy_user_session_path, class: 'nav-link text-danger text-thin', method: :delete
             - if current_user.partner?
               %li.nav-item
                 = link_to 'Partner Dashboard', partner_contributions_path, class: 'btn btn-primary'
