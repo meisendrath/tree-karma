@@ -4,3 +4,10 @@
 
 %section.content-section.text-center
   %h2 Contribute! Plant a tree
+
+  .card.m-5.text-dark.-page
+    .card-body
+      %h5.card-title Donate with Credit/Debit card
+      = form_for resource do |f|
+        #js-stripe-card
+        = f.submit 'Contribute!', class: 'btn btn-success'

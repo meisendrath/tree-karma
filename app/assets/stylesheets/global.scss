@@ -36,3 +36,8 @@ footer {
   background: rgba(0.5,.5,0,0.57);
   z-index: -1;
 }
+
+.card.-page {
+  border: none;
+  box-shadow: 0 2px 3px rgba(50,50,50,0.35);
+}
