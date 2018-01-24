@@ -19,6 +19,8 @@ class Partner::PlantedTreesController < ApplicationController
       PlantedTree.new(planted_tree_params)
     )
 
+    ContributionService.anchor_to_blockchain!(contribution)
+
     redirect_to partner_contributions_path
   rescue => e
     flash[:error] = e.message
