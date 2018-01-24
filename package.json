@@ -1,7 +1,5 @@
 {
   "name": "wuji-karma",
   "private": true,
-  "dependencies": {
-    "blockchain-anchor": "^2.3.2"
-  }
+  "dependencies": {}
 }
