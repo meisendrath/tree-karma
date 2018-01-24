@@ -14,9 +14,12 @@ class Partner::PlantedTreesController < ApplicationController
     raise 'Contribution status is not valid' unless contribution.accepted?
     raise 'You are not authorized for this contribution' unless contribution.partner == current_user.partner
 
+    planted_tree = PlantedTree.new(planted_tree_params)
+    planted_tree.planted_date = Date.current
+
     ContributionService.make_completed!(
       contribution,
-      PlantedTree.new(planted_tree_params)
+      planted_tree
     )
 
     ContributionService.anchor_to_blockchain!(contribution)
@@ -30,6 +33,11 @@ class Partner::PlantedTreesController < ApplicationController
   private
 
   def planted_tree_params
-    params.require(:planted_tree).permit(:name, { location_attributes: [:latitude, :longitude] }, :image)
+    params.require(:planted_tree).permit(
+      :name,
+      { location_attributes: [:latitude, :longitude] },
+      :image,
+      :planted_age_years
+    )
   end
 end

@@ -1,7 +1,14 @@
--# TODO
--# Shows tree index
--#  - tree list & progress/status
--#  - karma
-
 %section.content-section.text-center
-  %h1 Trees planted, payments made, Karma earned
+  .container
+    .row
+      .col
+        .card.-page
+          .list-group
+            - resources.each do |resource|
+              .list-group-item.flex-column.align-items-start.text-muted
+                .d-flex.w-100.justify-content-between
+                  %h5.mb-1.text-dark
+                    = "#{Settings.contribution.name} ##{resource.id}"
+                  %small= resource.price.format
+                  .mb-1= resource.status
+                  %img{src: resource.item.image.url(:thumbnail)}

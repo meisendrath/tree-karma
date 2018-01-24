@@ -7,6 +7,10 @@ class ContributionsController < ApplicationController
     self.resource = Contribution.new
   end
 
+  def index
+    self.resources = current_user.contributor.contributions
+  end
+
   def create
     quantity = params[:quantity].to_i
     stripe_token = params[:stripe_token]

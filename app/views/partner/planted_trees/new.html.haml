@@ -9,6 +9,10 @@
               = f.label :name
               %br
               = f.text_field :name, autofocus: true
+            .field.text-dark
+              = f.label :planted_age_years
+              %br
+              = f.text_field :planted_age_years
             = f.fields_for :location_attributes do |location_fields|
               .field.text-dark
                 = location_fields.label :latitude
