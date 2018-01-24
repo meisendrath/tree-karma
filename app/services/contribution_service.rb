@@ -35,5 +35,28 @@ class ContributionService
         completed_at: Time.current
       )
     end
+
+    def anchor_to_blockchain!(contribution)
+      raise 'Contribution is not completed' unless contribution.completed?
+      raise 'Tierion attrs already has been sent to blockchain' if contributor.tierion_hash? || contributor.tierion_receipt_id?
+
+      result = BlockchainService.anchor(contribution, [
+        :contributor_id,
+        :partner_id,
+        :item_type,
+        :item_id,
+        :price_cents,
+        :price_currency,
+        :completed_at,
+        :stripe_id,
+        :created_at
+        ]
+      )
+
+      contribution.update!(
+        tierion_hash: result.hash,
+        tierion_receipt_id: result.id
+      )
+    end
   end
 end
