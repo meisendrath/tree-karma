@@ -10,13 +10,7 @@ Rails.application.routes.draw do
 
   resources :contributions, only: [:index, :create, :new]
 
-  scope module: 'partner' do
-    resources :contributions, only: :index
-  end
-
   namespace :partner do
-    constraints subdomain: 'partner' do
-      resources :contributions, only: :index
-    end
+    resources :contributions, only: :index
   end
 end

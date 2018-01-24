@@ -10,6 +10,7 @@ class UsersController < ApplicationController
       ]
     )
     current_user.update!(permitted_params)
+    redirect_to partner_contributions_path
   rescue => e
     flash[:error] = e.message
     redirect_to become_partner_path
